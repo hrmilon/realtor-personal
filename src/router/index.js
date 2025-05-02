@@ -19,6 +19,16 @@ const router = createRouter({
       path: '/shadcn',
       name: 'shadcn',
       component: () => import('../views/ShadcnView.vue'),
+    }, 
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('../views/ContactView.vue'),
+    },
+    {
+      path: '/listing',
+      name: 'listing',
+      component: () => import('../views/ListingView.vue'),
     }
 
   ],

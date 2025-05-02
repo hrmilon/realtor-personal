@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    darkMode: ['class'],
-    content: ['./index.html', './src/**/*.{ts,js,vue}'],
+  darkMode: ['class'],
+  content: ['./index.html', './src/**/*.{ts,js,vue}'],
   theme: {
   	extend: {
   		borderRadius: {
@@ -10,8 +10,12 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-  			background: 'hsl(var(--background))',
+  			background: '#fbfbfe',
   			foreground: 'hsl(var(--foreground))',
+  			primary: '#111111',
+  			secondary: '#dedcff',
+  			accent: '#00c19e',
+  			text: '#050315',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
@@ -20,21 +24,9 @@ module.exports = {
   				DEFAULT: 'hsl(var(--popover))',
   				foreground: 'hsl(var(--popover-foreground))'
   			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
   				foreground: 'hsl(var(--muted-foreground))'
-  			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
   			},
   			destructive: {
   				DEFAULT: 'hsl(var(--destructive))',
@@ -50,8 +42,53 @@ module.exports = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
+  		},
+  		fontSize: {
+  			sm: '1rem',
+  			base: '1.125rem',
+  			xl: '2rem',
+  			'2xl': '1.421rem',
+  			'3xl': '1.894rem',
+  			'4xl': '2.525rem',
+  			'5xl': '3.366rem'
+  		},
+  		fontFamily: {
+  			heading: [
+  				'Lato',
+  				'sans-serif'
+  			],
+  			body: [
+  				'Inter',
+  				'sans-serif'
+  			]
+  		},
+  		fontWeight: {
+  			normal: '400',
+  			bold: '700'
+  		},
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--reka-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--reka-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [require('tailwindcss-animate')],
+};

@@ -1,7 +1,5 @@
 <template>
-<div class="bg-red-500 p-5 font-light text-white">
-  Welcome to About page <br>
-  Corresponds to url in route/index.js <br>
-  Lazy loaded settings in index/js
+<div class="mt-10 p-20 font-heading text-2xl">
+The About Section is under construction. Please check back later.....
 </div>
 </template>

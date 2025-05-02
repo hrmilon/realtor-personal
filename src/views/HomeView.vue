@@ -1,14 +1,21 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import HeroSection from '@/components/custom/HeroSection.vue';
+import BioData from '@/components/custom/BioData.vue';
+import ListingSection from '@/components/custom/ListingSection.vue';
+import SocialSection from '@/components/custom/SocialSection.vue';
+import NewsLetter from '@/components/custom/NewsLetter.vue';
+import Faq from '@/components/custom/Faq.vue';
+import TestimonialSection from '@/components/custom/TestimonialSection.vue';
 
-const loadInstagramEmbed = () => {
-  const script = document.createElement('script');
-  script.src = '//www.instagram.com/embed.js';
-  script.async = true;
-  document.body.appendChild(script);
-};
-
-// loadInstagramEmbed();
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 
 </script>
@@ -16,9 +23,12 @@ const loadInstagramEmbed = () => {
   <main>
     <div>
       <HeroSection />
-      <SocialSection />
       <BioData />
       <ListingSection />
+      <TestimonialSection />
+      <SocialSection />
+      <NewsLetter />
+      <Faq />
     </div>
   </main>
 </template>
