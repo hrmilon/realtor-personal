@@ -10,25 +10,54 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
+    // {
+    //   path: '/about',
+    //   name: 'about',
+    //   component: () => import('../views/AboutView.vue'),
+    // },
+    // {
+    //   path: '/shadcn',
+    //   name: 'shadcn',
+    //   component: () => import('../views/ShadcnView.vue'),
+    // },
+    // {
+    //   path: '/contact',
+    //   name: 'contact',
+    //   component: () => import('../views/ContactView.vue'),
+    // },
+    // {
+    //   path: '/listing',
+    //   name: 'listing',
+    //   component: () => import('../views/ListingView.vue'),
+    // },
+
+
+    //auto facing and matching through the slug
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue'),
-    },
-    {
-      path: '/shadcn',
-      name: 'shadcn',
-      component: () => import('../views/ShadcnView.vue'),
-    }, 
-    {
-      path: '/contact',
-      name: 'contact',
-      component: () => import('../views/ContactView.vue'),
-    },
-    {
-      path: '/listing',
-      name: 'listing',
-      component: () => import('../views/ListingView.vue'),
+      path: '/site',
+      component: () => import('../views/SitePageView.vue'),
+      children: [
+        {
+          path: ':slug',
+          name: 'homeSlug',
+          component: () => import('../views/SlugHome.vue'),
+        },
+        {
+          path: ':slug/about',
+          name: 'about',
+          component: () => import('../views/AboutView.vue'),
+        },
+        {
+          path: ':slug/contact',
+          name: 'contact',
+          component: () => import('../views/ContactView.vue'),
+        },
+        {
+          path: ':slug/listing',
+          name: 'listing',
+          component: () => import('../views/ListingView.vue'),
+        }
+      ]
     }
 
   ],

@@ -91,7 +91,7 @@ let dialogOpen = ref(false);
         <div class="">
             <Button variant="outline"
                 class="font-body text-sm text-black bg-transparent w-[200px] h-16 hover:bg-primary hover:text-white border-black rounded-none hover:border-none">
-                <RouterLink to="/listing">View All</RouterLink>
+                <RouterLink :to="{ name: 'listing' }">View All</RouterLink>
             </Button>
         </div>
     </div>

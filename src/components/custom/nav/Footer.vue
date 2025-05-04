@@ -13,7 +13,7 @@
           <Button variant="ghost"
             class="w-full justify-start gap-2 hover:bg-gray-800 hover:text-white transition-colors duration-300 font-body">
             <Mail class="w-4 h-4" />
-            <span>contact@ashleyballezzi.com</span>
+            <span>contact@me.com</span>
           </Button>
         </div>
 
@@ -44,24 +44,24 @@
             <RouterLink :to="{ path: '#' }">
               <!-- <Building2 class="w-4 h-4" /> -->
               <span>
-                <img class="w-20 h-10 bg-white rounded-"
-                  src="https://realestateagentpdx.com/wp-content/uploads/2021/07/EXP-Black-square.png" alt="" srcset="">
+                <!-- <img class="w-20 h-10 bg-white rounded-"
+                  src="https://realestateagentpdx.com/wp-content/uploads/2021/07/EXP-Black-square.png" alt="" srcset=""> -->
+                  Example 1
               </span>
             </RouterLink>
           </Button>
           <Button variant="ghost" asChild
             class="w-full justify-start gap-2 hover:bg-gray-800 hover:text-white transition-colors duration-300 font-body">
             <RouterLink :to="{ path: '#' }">
-
               <span>
-                  ChattaLiving
+                  Example 2
               </span>
             </RouterLink>
           </Button>
         </div>
       </div>
       <div class="mt-6 text-center text-xs font-body">
-        <p>© 2025 Ashley Ballezzi. All rights reserved.</p>
+        <p>© 2025 (). All rights reserved.</p>
         <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 font-body">Privacy Policy</a>
       </div>
     </div>

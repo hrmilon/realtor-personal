@@ -15,7 +15,7 @@ let bgImage = [
 ]
 
 let randomBg = ref(bgImage[Math.floor(Math.random() * bgImage.length)]);
-console.log(randomBg.value);
+
 </script>
 
 <template>

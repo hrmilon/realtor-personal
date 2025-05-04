@@ -31,7 +31,7 @@ import { Button } from "@/components/ui/button"
                     <div class="mt-4">
                         <Button variant="outline"
                             class="font-body text-sm text-black bg-transparent w-[200px] h-16 hover:bg-primary hover:text-white border-black rounded-none hover:border-none">
-                            <RouterLink to="/about">Learn More</RouterLink>
+                            <RouterLink :to="{ name: 'about' }">Learn More</RouterLink>
                         </Button>
                     </div>
                 </div>
