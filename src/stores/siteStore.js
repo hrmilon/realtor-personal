@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
+const apiEndpoint = import.meta.env.VITE_BACKEND;
 
 export const useSiteStore = defineStore('siteStore', {
     state: () => ({
@@ -10,13 +11,13 @@ export const useSiteStore = defineStore('siteStore', {
         async fetchSiteData(slug) {
             this.isError = false; // Reset error state before fetching
             try {
-                const response = await fetch(`http://127.0.0.1:8000/api/site/${slug}`);
+                const response = await fetch(`${apiEndpoint}/api/site/${slug}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch site data');
                 }
                 this.siteData = await response.json();
-                console.log(this.siteData);
-                
+                // console.log(this.siteData);
+
             } catch (error) {
                 this.isError = true;
             }

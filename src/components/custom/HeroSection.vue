@@ -1,10 +1,11 @@
 <script setup>
 import { Button } from "@/components/ui/button"
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { useSiteStore } from "@/stores/siteStore";
 
 let isClicked = ref(false);
 
@@ -15,6 +16,10 @@ let bgImage = [
 ]
 
 let randomBg = ref(bgImage[Math.floor(Math.random() * bgImage.length)]);
+
+let siteStore = useSiteStore();
+const siteData = computed(() => siteStore.getSiteData)
+const hasError = computed(() => siteStore.hasError)
 
 </script>
 
@@ -56,10 +61,13 @@ let randomBg = ref(bgImage[Math.floor(Math.random() * bgImage.length)]);
             <div class="flex flex-col items-center text-center">
                 <div
                     class="text-xl md:text-xl font-body font-bold [text-shadow:_2px_2px_4px_rgba(0,0,0,0.8)] md:text-white">
-                    Helping Serve Chattanooga, TN & North Georgia
+                    <!-- Helping Serve Chattanooga, TN & North Georgia -->
+                    {{ siteData?.topheading || '' }}
                 </div>
                 <div class="text-base font-heading  [text-shadow:_2px_2px_4px_rgba(0,0,0,0.8)]">
-                    Top-rated agent helping families buy & sell with confidence.
+                    <!-- Top-rated agent helping families buy & sell with confidence. -->
+                    {{ siteData?.subheading || '' }}
+
                 </div>
             </div>
             <div class="mt-4">

@@ -10,11 +10,11 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: () => import('../views/AboutView.vue'),
-    // },
+    {
+      path: '/site',
+      name: 'site',
+      component: () => import('../views/HomeView.vue'),
+    },
     // {
     //   path: '/shadcn',
     //   name: 'shadcn',

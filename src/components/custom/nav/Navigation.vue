@@ -56,7 +56,7 @@ const hasError = computed(() => siteStore.hasError)
         <div class="hidden md:flex justify-between mx-5 py-2">
             <div class="font-heading font-bold text-2xl">
                 <RouterLink active-class="active" :to="{ name: 'homeSlug' }">
-                    Ashley Ballezzi
+                    {{ siteData?.name || '' }}
                 </RouterLink>
 
             </div>
@@ -101,7 +101,7 @@ const hasError = computed(() => siteStore.hasError)
         <div class="md:hidden flex justify-between px-4 py-2">
             <div class="font-heading font-bold">
                 <RouterLink active-class="active" :to="{ name: 'homeSlug' }">
-                    Ashley Ballezzi
+                    {{ siteData?.name || '' }}
                 </RouterLink>
             </div>
 

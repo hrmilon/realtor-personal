@@ -1,3 +1,15 @@
+<script setup>
+import { useSiteStore } from '@/stores/siteStore';
+import { computed } from 'vue';
+
+let siteStore = useSiteStore();
+const siteData = computed(() => siteStore.getSiteData)
+const hasError = computed(() => siteStore.hasError)
+
+import { Button } from "@/components/ui/button"
+import { RouterLink } from "vue-router"
+import { Phone, Mail, Linkedin, Home, Building2, Award } from "lucide-vue-next"
+</script>
 <template>
   <footer class="bg-gray-900 text-gray-400 py-6 mt-auto">
     <div class="container mx-auto px-4">
@@ -22,14 +34,14 @@
           <h3 class="font-heading text-white text-base mb-4">Connect With Me</h3>
           <Button variant="ghost" asChild
             class="w-full justify-start gap-2 hover:bg-gray-800 hover:text-white transition-colors duration-300 font-body">
-            <RouterLink :to="{ path: '/profile' }">
+            <RouterLink :to="{ name: 'homeSlug' }">
               <Linkedin class="w-4 h-4" />
               <span>Profile</span>
             </RouterLink>
           </Button>
           <Button variant="ghost" asChild
             class="w-full justify-start gap-2 hover:bg-gray-800 hover:text-white transition-colors duration-300 font-body">
-            <RouterLink :to="{ path: '/listing' }">
+            <RouterLink :to="{ name: 'listing' }">
               <Home class="w-4 h-4" />
               <span>Listings</span>
             </RouterLink>
@@ -46,7 +58,7 @@
               <span>
                 <!-- <img class="w-20 h-10 bg-white rounded-"
                   src="https://realestateagentpdx.com/wp-content/uploads/2021/07/EXP-Black-square.png" alt="" srcset=""> -->
-                  Example 1
+                Example 1
               </span>
             </RouterLink>
           </Button>
@@ -54,22 +66,17 @@
             class="w-full justify-start gap-2 hover:bg-gray-800 hover:text-white transition-colors duration-300 font-body">
             <RouterLink :to="{ path: '#' }">
               <span>
-                  Example 2
+                Example 2
               </span>
             </RouterLink>
           </Button>
         </div>
       </div>
       <div class="mt-6 text-center text-xs font-body">
-        <p>© 2025 (). All rights reserved.</p>
+        <p>© 2025 {{ siteData?.name || '' }}
+          . All rights reserved.</p>
         <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 font-body">Privacy Policy</a>
       </div>
     </div>
   </footer>
 </template>
-
-<script setup lang="ts">
-import { Button } from "@/components/ui/button"
-import { RouterLink } from "vue-router"
-import { Phone, Mail, Linkedin, Home, Building2, Award } from "lucide-vue-next"
-</script>

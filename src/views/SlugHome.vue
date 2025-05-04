@@ -9,6 +9,7 @@ import Faq from '@/components/custom/Faq.vue';
 import TestimonialSection from '@/components/custom/TestimonialSection.vue';
 
 
+
 </script>
 <template>
     <HeroSection />
