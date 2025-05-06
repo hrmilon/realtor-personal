@@ -12,19 +12,25 @@ import {
     NavigationMenuViewport,
 } from '@/components/ui/navigation-menu'
 
+import { useRoute } from 'vue-router';
+
 import {
     DropdownMenu,
     DropdownMenuTrigger,
     DropdownMenuContent,
     DropdownMenuItem
 } from '@/components/ui/dropdown-menu'
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { useSiteStore } from '@/stores/siteStore';
+
+const route = useRoute();
+const slug = ref(route.params.slug || '');
 
 const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Listing', path: '/listing' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Home', path: `/site/${slug.value}` },
+    { name: 'Listing', path: `/site/${slug.value}/listing` },
+    { name: 'About', path: `/site/${slug.value}/about` },
+    { name: 'Contact', path: `/site/${slug.value}/contact` },
     { name: 'Home Valuation', path: '#' },
     { name: 'Book a Meeting', path: '#' }
 ]
@@ -38,14 +44,19 @@ const toggleDialog = () => {
 const closeDialog = () => {
     dialogOpen.value = false;
 }
+
+let siteStore = useSiteStore();
+const siteData = computed(() => siteStore.getSiteData)
+const hasError = computed(() => siteStore.hasError)
+
 </script>
 
 <template>
     <div class="w-full mx-auto fixed top-0 z-20 bg-white">
         <div class="hidden md:flex justify-between mx-5 py-2">
             <div class="font-heading font-bold text-2xl">
-                <RouterLink active-class="active" to="/">
-                    Ashley Ballezzi
+                <RouterLink active-class="active" :to="{ name: 'homeSlug' }">
+                    {{ siteData?.name || '' }}
                 </RouterLink>
 
             </div>
@@ -56,7 +67,7 @@ const closeDialog = () => {
                         <NavigationMenuItem>
                             <NavigationMenuLink href="" class="hover:underline hover:bg-white"
                                 :class="navigationMenuTriggerStyle()">
-                                <RouterLink active-class="active" to="/listing">
+                                <RouterLink active-class="active" :to="{ name: 'listing' }">
                                     Listings
                                 </RouterLink>
                             </NavigationMenuLink>
@@ -65,7 +76,7 @@ const closeDialog = () => {
                         <NavigationMenuItem>
                             <NavigationMenuLink class="hover:underline hover:bg-white"
                                 :class="navigationMenuTriggerStyle()">
-                                <RouterLink active-class="active" to="/contact">
+                                <RouterLink active-class="active" :to="{ name: 'contact' }">
                                     Let's Connect
                                 </RouterLink>
                             </NavigationMenuLink>
@@ -89,8 +100,8 @@ const closeDialog = () => {
     <div class="fixed bg-white w-full top-0 z-50">
         <div class="md:hidden flex justify-between px-4 py-2">
             <div class="font-heading font-bold">
-                <RouterLink active-class="active" to="/">
-                    Ashley Ballezzi
+                <RouterLink active-class="active" :to="{ name: 'homeSlug' }">
+                    {{ siteData?.name || '' }}
                 </RouterLink>
             </div>
 

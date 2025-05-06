@@ -1,18 +1,27 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import Navigation from './components/custom/nav/Navigation.vue';
-import Footer from './components/custom/nav/Footer.vue';
+
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <Navigation />
-    </div>
-  </header>
+
+<div class="fixed bottom-4 right-4 z-50 animate-[float_3s_ease-in-out_infinite]">
+  <a href="/" target="_blank"
+    class="text-xs px-3 py-1.5 bg-neutral-900 text-white rounded-full shadow-sm hover:bg-neutral-800 hover:shadow-md transition duration-300 ease-in-out">
+    ⚡ Ready to go live?
+  </a>
+</div>
 
   <RouterView />
-  <Footer />
 </template>
+<style>
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
 
-<style scoped></style>
+</style>

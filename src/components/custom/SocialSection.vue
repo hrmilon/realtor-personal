@@ -1,7 +1,8 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { Skeleton } from "@/components/ui/skeleton"
+import { useSiteStore } from '@/stores/siteStore';
 
 // TODO: Add a loading state to the skeletons
 
@@ -33,16 +34,22 @@ const loadInstagramEmbed = async () => {
 };
 
 onMounted(async () => {
-    await loadInstagramEmbed();
+     loadInstagramEmbed();
 });
 
 // Re-run embed script on route changes with delay
 watch(() => route.path, async () => {
     await loadInstagramEmbed();
 });
+
+
+let siteStore = useSiteStore();
+const siteData = computed(() => siteStore.getSiteData)
+const hasError = computed(() => siteStore.hasError)
 </script>
 
 <template>
+
     <div class="container mx-auto py-10">
         <div class="font-heading  text-xl items-center justify-center flex mb-3">Featured on Social</div>
 
@@ -68,15 +75,13 @@ watch(() => route.path, async () => {
 
         <div v-else class="flex flex-col md:flex-row justify-center items-center md:space-x-4">
             <div>
-                <blockquote class="instagram-media"
-                    data-instgrm-permalink="https://www.instagram.com/p/DHeKcYdx-ky/"
-                    data-instgrm-version="14" style="width:100%; max-width:400px; margin:auto;">
+                <blockquote class="instagram-media" :data-instgrm-permalink="siteData?.reels" data-instgrm-version="14"
+                    style="width:100%; max-width:400px; margin:auto;">
                 </blockquote>
             </div>
 
             <div>
-                <blockquote class="instagram-media"
-                    data-instgrm-permalink="https://www.instagram.com/reel/DIzjt0iR74C/"
+                <blockquote class="instagram-media" :data-instgrm-permalink="siteData?.reels"
                     data-instgrm-version="14" style="width:100%; max-width:400px; margin:auto;">
                 </blockquote>
             </div>
