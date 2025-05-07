@@ -32,7 +32,7 @@
             </p>
             <p class="text-base sm:text-lg mt-2">
               Instagram:
-              <a href="https://instagram.com/hrmilon99" target="_blank"
+              <a href="https://instagram.com/milon.web" target="_blank"
                 class="underline hover:text-amber-300 transition">hrmilon</a>
             </p>
             <p class="text-base sm:text-lg mt-2">
